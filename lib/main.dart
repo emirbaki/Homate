@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homate/pages/homate_login_page.dart';
+import 'package:homate/pages/homate_wallet_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.orange,
       ),
-      home: const HomateLoginPage(title: 'Homate'),
+      // home: const HomateLoginPage(title: 'Homate'),
+      home: const WalletPage(),
     );
   }
 }

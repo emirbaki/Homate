@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homate/pages/HomateLoginPage.dart';
+import 'package:homate/pages/homate_login_page.dart';
 
 void main() {
   runApp(const MyApp());

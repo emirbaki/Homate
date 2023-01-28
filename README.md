@@ -1,6 +1,6 @@
-# homate
+# HOMATE
 
-A new Flutter project.
+Homate Genel Proje Repository'si
 
 ## Getting Started
 

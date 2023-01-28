@@ -18,7 +18,7 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
     height = size.height;
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -47,11 +47,11 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
           ),
           Expanded(
             flex: 2,
-            child: LoginField('Enter your Email'),
+            child: loginField('Enter your Email'),
           ),
           Expanded(
             flex: 2,
-            child: LoginField('Enter your Password'),
+            child: loginField('Enter your Password'),
           ),
           Expanded(
             flex: 1,
@@ -63,14 +63,14 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
                   flex: 1,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: LoginButton('Login with Google', Icons.g_mobiledata),
+                    child: loginButton('Login with Google', Icons.g_mobiledata),
                   ),
                 ),
                 Expanded(
                   flex: 1,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: LoginButton('Login with Facebook', Icons.facebook),
+                    child: loginButton('Login with Facebook', Icons.facebook),
                   ),
                 )
               ],
@@ -78,7 +78,7 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
           ),
           Expanded(
             flex: 1,
-            child: LoginButton('Login', Icons.login),
+            child: loginButton('Login', Icons.login),
           ),
           Expanded(
             flex: 1,
@@ -89,7 +89,7 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
     );
   }
 
-  ElevatedButton LoginButton(String label, IconData iconData) {
+  ElevatedButton loginButton(String label, IconData iconData) {
     return ElevatedButton.icon(
       icon: Icon(iconData),
       label: Padding(
@@ -100,12 +100,12 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
     );
   }
 
-  Padding LoginField(String hintText) {
+  Padding loginField(String hintText) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: TextField(
         decoration: InputDecoration(
-          border: OutlineInputBorder(),
+          border: const OutlineInputBorder(),
           hintText: hintText,
         ),
       ),

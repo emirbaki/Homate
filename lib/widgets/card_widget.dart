@@ -5,6 +5,7 @@ class CardBuild extends StatefulWidget {
   final bool transfer;
   final String cardProvider;
   final int cardNumber;
+  final String cardOwner;
   final String balance;
   final Color bgColor;
   final Color fontColor;
@@ -16,6 +17,7 @@ class CardBuild extends StatefulWidget {
     required this.transfer,
     required this.cardProvider,
     required this.cardNumber,
+    required this.cardOwner,
     required this.balance,
     required this.bgColor,
     required this.fontColor,
@@ -34,17 +36,19 @@ class _CardBuildState extends State<CardBuild> {
     String cardProvider = widget.cardProvider;
     int cardNumber = widget.cardNumber;
     String balance = widget.balance;
+    String cardOwner = widget.cardOwner;
     Color bgColor = widget.bgColor;
     Color fontColor = widget.fontColor;
 
     Function bottomBarVisibilityFunction = widget.bottomBarVisibilityFunction;
-    return buildCard(cardProvider, cardNumber, balance, bgColor, fontColor,
-        size, bottomBarVisibilityFunction);
+    return buildCard(cardProvider, cardNumber, cardOwner, balance, bgColor,
+        fontColor, size, bottomBarVisibilityFunction);
   }
 
   Widget buildCard(
     String cardProvider,
     int cardNumber,
+    String cardOwner,
     String balance,
     Color bgColor,
     Color fontColor,
@@ -155,7 +159,7 @@ class _CardBuildState extends State<CardBuild> {
                     height: size.height * 0.03,
                     width: size.width * 0.6,
                     child: Text(
-                      "Martin Gogołowicz",
+                      cardOwner,
                       overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.inconsolata(
                         color: fontColor,

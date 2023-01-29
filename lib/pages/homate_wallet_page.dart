@@ -23,8 +23,9 @@ class _WalletPageState extends State<WalletPage> {
       appBar: AppBar(),
       body: CardBuild(
           transfer: true,
-          cardProvider: 'Emir Baki Demirci',
+          cardProvider: 'Visa',
           cardNumber: 15213214124,
+          cardOwner: 'Emir Baki Demirci',
           balance: '1500',
           bgColor: const Color.fromARGB(255, 255, 113, 113),
           fontColor: const Color.fromARGB(255, 255, 255, 255),

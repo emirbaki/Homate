@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:homate/utilities/color_utilities.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:homate/pages/pages_list.dart';
 
 class BottomBarWidget extends StatelessWidget {
   final int currentIndex;
 
-  const BottomBarWidget({
+  BottomBarWidget({
     required this.currentIndex,
     Key? key,
   }) : super(key: key);
@@ -20,7 +21,7 @@ class BottomBarWidget extends StatelessWidget {
           itemPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           duration: const Duration(seconds: 1),
           selectedColorOpacity: 0.1,
-          selectedItemColor: Colors.white,
+          selectedItemColor: HomateColorHelper.homateOrange,
           unselectedItemColor: Colors.white,
           currentIndex: currentIndex,
           onTap: (i) {

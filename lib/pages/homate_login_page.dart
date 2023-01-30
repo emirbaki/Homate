@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:homate/utilities/color_utilities.dart';
+import 'package:homate/widgets/bottom_bar_widget.dart';
 
 class HomateLoginPage extends StatefulWidget {
   const HomateLoginPage({super.key, required String title});
@@ -18,6 +20,7 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
     height = size.height;
 
     return Scaffold(
+      bottomNavigationBar: BottomBarWidget(currentIndex: 0),
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -91,6 +94,8 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
 
   ElevatedButton loginButton(String label, IconData iconData) {
     return ElevatedButton.icon(
+      style: ElevatedButton.styleFrom(
+          backgroundColor: HomateColorHelper.homateOrange),
       icon: Icon(iconData),
       label: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12),

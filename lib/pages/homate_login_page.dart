@@ -38,7 +38,7 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
           ]),
         ),
         bottomNavigationBar: const BottomBarWidget(currentIndex: 0),
-        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: const Color.fromARGB(255, 255, 249, 172),
         body: TabBarView(children: [loginPageContent(), loginPageContent()]),
       ),
     );
@@ -65,11 +65,11 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
         ),
         Expanded(
           flex: 2,
-          child: loginField('Enter your Email'),
+          child: loginField('Enter your Email', Icons.email_outlined),
         ),
         Expanded(
           flex: 2,
-          child: loginField('Enter your Password'),
+          child: loginField('Enter your Password', Icons.key),
         ),
         Expanded(
           flex: 1,
@@ -119,11 +119,12 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
     );
   }
 
-  Padding loginField(String hintText) {
+  Padding loginField(String hintText, IconData iconData) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: TextField(
         decoration: InputDecoration(
+          prefixIcon: Icon(iconData),
           border: const OutlineInputBorder(),
           hintText: hintText,
         ),

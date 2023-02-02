@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:homate/utilities/color_utilities.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+
 import 'package:homate/pages/pages_list.dart';
 
 class BottomBarWidget extends StatelessWidget {
   final int currentIndex;
 
-  BottomBarWidget({
+  const BottomBarWidget({
     required this.currentIndex,
     Key? key,
   }) : super(key: key);

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:homate/pages/homate_wallet_page.dart';
 import 'package:homate/utilities/color_utilities.dart';
 
+import 'pages/homate_login_page.dart';
+import 'package:homate/pages/pages_list.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -17,10 +20,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
 
       theme: ThemeData(
+        tabBarTheme: Theme.of(context)
+            .tabBarTheme
+            .copyWith(indicatorColor: Colors.amber),
         primarySwatch: HomateColorHelper.homateOrange,
       ),
-      // home: const HomateLoginPage(title: 'Homate'),
-      home: const WalletPage(),
+      initialRoute: '/',
+      routes: {'/': (context) => pages[0], '/wallet': (context) => pages[1]},
+      // home: const WalletPage(),
     );
   }
 }

@@ -20,10 +20,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
 
       theme: ThemeData(
-        tabBarTheme: Theme.of(context)
-            .tabBarTheme
-            .copyWith(indicatorColor: Colors.amber),
         primarySwatch: HomateColorHelper.homateOrange,
+        tabBarTheme: const TabBarTheme(
+            labelColor: Colors.deepPurple,
+            unselectedLabelColor: Colors.black,
+            indicatorColor: Colors.blue),
       ),
       initialRoute: '/',
       routes: {'/': (context) => pages[0], '/wallet': (context) => pages[1]},

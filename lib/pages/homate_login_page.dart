@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:homate/utilities/color_utilities.dart';
 import 'package:homate/widgets/bottom_bar_widget.dart';
 
+import '../widgets/homate_logo_widget.dart';
+
 class HomateLoginPage extends StatefulWidget {
   const HomateLoginPage({super.key, required String title});
 
@@ -19,76 +21,88 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
     width = size.width;
     height = size.height;
 
-    return Scaffold(
-      bottomNavigationBar: BottomBarWidget(currentIndex: 0),
-      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Expanded(
-            flex: 1,
-            child: Container(),
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          toolbarHeight: 150,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(40),
+                bottomRight: Radius.circular(40)),
           ),
-          Expanded(
-            child: Container(
-              alignment: Alignment.center,
-              child: const Text('HOMATE'),
-            ),
-          ),
-          Expanded(
-            flex: 3,
-            child: Container(
-              alignment: Alignment.center,
-              child: Image.network(
-                  'https://seeklogo.com/images/T/trendyol-yemek-logo-A119EAD68E-seeklogo.com.png'),
-            ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Container(),
-          ),
-          Expanded(
-            flex: 2,
-            child: loginField('Enter your Email'),
-          ),
-          Expanded(
-            flex: 2,
-            child: loginField('Enter your Password'),
-          ),
-          Expanded(
-            flex: 1,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: loginButton('Login with Google', Icons.g_mobiledata),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: loginButton('Login with Facebook', Icons.facebook),
-                  ),
-                )
-              ],
-            ),
-          ),
-          Expanded(
-            flex: 1,
-            child: loginButton('Login', Icons.login),
-          ),
-          Expanded(
-            flex: 1,
-            child: Container(),
-          )
-        ],
+          title: const LogoWidget(),
+          bottom: const TabBar(tabs: [
+            Tab(text: 'Login'),
+            Tab(text: 'Sign Up'),
+          ]),
+        ),
+        bottomNavigationBar: const BottomBarWidget(currentIndex: 0),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        body: TabBarView(children: [loginPageContent(), loginPageContent()]),
       ),
+    );
+  }
+
+  Column loginPageContent() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        Expanded(
+          flex: 1,
+          child: Container(),
+        ),
+        Expanded(
+          child: Container(
+            alignment: Alignment.center,
+            child: const Text('HOMATE'),
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: Container(),
+        ),
+        Expanded(
+          flex: 2,
+          child: loginField('Enter your Email'),
+        ),
+        Expanded(
+          flex: 2,
+          child: loginField('Enter your Password'),
+        ),
+        Expanded(
+          flex: 1,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Expanded(
+                flex: 1,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: loginButton('Login with Google', Icons.g_mobiledata),
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: loginButton('Login with Facebook', Icons.facebook),
+                ),
+              )
+            ],
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: loginButton('Login', Icons.login),
+        ),
+        Expanded(
+          flex: 1,
+          child: Container(),
+        )
+      ],
     );
   }
 

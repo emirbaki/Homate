@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:homate/utilities/color_utilities.dart';
+import 'package:homate/core/facebook_logger.dart';
+import 'package:homate/core/google_logger.dart';
 import 'package:homate/widgets/bottom_bar_widget.dart';
 
+import '../widgets/extended_elevated_button.dart';
 import '../widgets/homate_logo_widget.dart';
 
 class HomateLoginPage extends StatefulWidget {
@@ -81,14 +83,26 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
                 flex: 1,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: loginButton('Login with Google', Icons.g_mobiledata),
+                  child: ExtendedElevatedButton(
+                    width: width,
+                    height: height,
+                    label: 'Login with Google',
+                    iconData: Icons.g_mobiledata,
+                    ilogger: GoogleLogger(),
+                  ),
                 ),
               ),
               Expanded(
                 flex: 1,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: loginButton('Login with Facebook', Icons.facebook),
+                  child: ExtendedElevatedButton(
+                    width: width,
+                    height: height,
+                    label: 'Login with Facebook',
+                    iconData: Icons.facebook,
+                    ilogger: FacebookLogger(),
+                  ),
                 ),
               )
             ],
@@ -96,26 +110,17 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
         ),
         Expanded(
           flex: 1,
-          child: loginButton('Login', Icons.login),
+          child: ExtendedElevatedButton(
+              width: width,
+              height: height,
+              label: 'Login',
+              iconData: Icons.login),
         ),
         Expanded(
           flex: 1,
           child: Container(),
         )
       ],
-    );
-  }
-
-  ElevatedButton loginButton(String label, IconData iconData) {
-    return ElevatedButton.icon(
-      style: ElevatedButton.styleFrom(
-          backgroundColor: HomateColorHelper.homateOrange),
-      icon: Icon(iconData),
-      label: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
-        child: Text(label, textScaleFactor: width / height * 1.45),
-      ),
-      onPressed: () => print("Login gerçekleşti"),
     );
   }
 

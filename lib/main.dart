@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:homate/pages/homate_wallet_page.dart';
 import 'package:homate/utilities/color_utilities.dart';
 
-import 'pages/homate_login_page.dart';
 import 'package:homate/pages/pages_list.dart';
 
 void main() {

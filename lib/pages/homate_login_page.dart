@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:homate/core/facebook_logger.dart';
-import 'package:homate/core/google_logger.dart';
 import 'package:homate/widgets/bottom_bar_widget.dart';
 
-import '../widgets/extended_elevated_button.dart';
+import '../widgets/custom_form.dart';
 import '../widgets/homate_logo_widget.dart';
 
 class HomateLoginPage extends StatefulWidget {
@@ -41,98 +39,10 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
         ),
         bottomNavigationBar: const BottomBarWidget(currentIndex: 0),
         backgroundColor: const Color.fromARGB(255, 255, 249, 172),
-        body: TabBarView(children: [loginPageContent(), loginPageContent()]),
-      ),
-    );
-  }
-
-  Column loginPageContent() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        Expanded(
-          flex: 1,
-          child: Container(),
-        ),
-        Expanded(
-          child: Container(
-            alignment: Alignment.center,
-            child: const Text('HOMATE'),
-          ),
-        ),
-        Expanded(
-          flex: 1,
-          child: Container(),
-        ),
-        Expanded(
-          flex: 2,
-          child: loginField('Enter your Email', Icons.email_outlined),
-        ),
-        Expanded(
-          flex: 2,
-          child: loginField('Enter your Password', Icons.key),
-        ),
-        Expanded(
-          flex: 1,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Expanded(
-                flex: 1,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ExtendedElevatedButton(
-                    width: width,
-                    height: height,
-                    label: 'Login with Google',
-                    iconData: Icons.g_mobiledata,
-                    ilogger: GoogleLogger(),
-                  ),
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ExtendedElevatedButton(
-                    width: width,
-                    height: height,
-                    label: 'Login with Facebook',
-                    iconData: Icons.facebook,
-                    ilogger: FacebookLogger(),
-                  ),
-                ),
-              )
-            ],
-          ),
-        ),
-        Expanded(
-          flex: 1,
-          child: ExtendedElevatedButton(
-              width: width,
-              height: height,
-              label: 'Login',
-              iconData: Icons.login),
-        ),
-        Expanded(
-          flex: 1,
-          child: Container(),
-        )
-      ],
-    );
-  }
-
-  Padding loginField(String hintText, IconData iconData) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: TextField(
-        decoration: InputDecoration(
-          prefixIcon: Icon(iconData),
-          border: const OutlineInputBorder(),
-          hintText: hintText,
-        ),
+        body: TabBarView(children: [
+          CustomFormWidget(width: width, height: height),
+          CustomFormWidget(width: width, height: height)
+        ]),
       ),
     );
   }

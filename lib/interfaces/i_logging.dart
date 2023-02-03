@@ -1,3 +1,3 @@
 abstract class ILogging {
-  void loggingLogic();
+  Future<void> loggingLogic();
 }

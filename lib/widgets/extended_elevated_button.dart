@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:homate/core/homate_logger.dart';
 import 'package:homate/interfaces/i_logging.dart';
 
 import '../utilities/color_utilities.dart';

@@ -39,7 +39,7 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
           ]),
         ),
         bottomNavigationBar: const BottomBarWidget(currentIndex: 0),
-        backgroundColor: Color.fromARGB(255, 255, 254, 238),
+        backgroundColor: Color.fromARGB(255, 239, 239, 239),
         body: TabBarView(children: [
           LoginFormWidget(width: width, height: height),
           SignupFormWidget(width: width, height: height)

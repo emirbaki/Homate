@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:homate/widgets/bottom_bar_widget.dart';
 
-import '../widgets/custom_form.dart';
+import '../widgets/login_form.dart';
 import '../widgets/homate_logo_widget.dart';
+import '../widgets/signup_form.dart';
 
 class HomateLoginPage extends StatefulWidget {
   const HomateLoginPage({super.key, required String title});
@@ -38,10 +39,10 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
           ]),
         ),
         bottomNavigationBar: const BottomBarWidget(currentIndex: 0),
-        backgroundColor: const Color.fromARGB(255, 255, 249, 172),
+        backgroundColor: Color.fromARGB(255, 255, 254, 238),
         body: TabBarView(children: [
-          CustomFormWidget(width: width, height: height),
-          CustomFormWidget(width: width, height: height)
+          LoginFormWidget(width: width, height: height),
+          SignupFormWidget(width: width, height: height)
         ]),
       ),
     );

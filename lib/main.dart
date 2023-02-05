@@ -20,9 +20,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: HomateColorHelper.homateOrange,
         tabBarTheme: const TabBarTheme(
-            labelColor: Colors.deepPurple,
+            indicator: UnderlineTabIndicator(
+                insets: EdgeInsets.symmetric(horizontal: 50),
+                borderRadius: BorderRadius.all(Radius.circular(5)),
+                borderSide: BorderSide(
+                    color: Colors.white, style: BorderStyle.solid, width: 2)),
+            labelColor: Colors.white,
             unselectedLabelColor: Colors.black,
-            indicatorColor: Colors.blue),
+            indicatorColor: Colors.white),
       ),
       initialRoute: '/',
       routes: {'/': (context) => pages[0], '/wallet': (context) => pages[1]},

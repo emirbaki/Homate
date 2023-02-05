@@ -5,8 +5,8 @@ import '../core/google_logger.dart';
 import 'extended_elevated_button.dart';
 import 'extended_textfield.dart';
 
-class CustomFormWidget extends StatelessWidget {
-  const CustomFormWidget({
+class LoginFormWidget extends StatelessWidget {
+  const LoginFormWidget({
     super.key,
     required this.width,
     required this.height,
@@ -25,16 +25,6 @@ class CustomFormWidget extends StatelessWidget {
           flex: 1,
           child: Container(),
         ),
-        Expanded(
-          child: Container(
-            alignment: Alignment.center,
-            child: const Text('HOMATE'),
-          ),
-        ),
-        Expanded(
-          flex: 1,
-          child: Container(),
-        ),
         const Expanded(
           flex: 2,
           child: ExtendedTextField(
@@ -43,7 +33,7 @@ class CustomFormWidget extends StatelessWidget {
         const Expanded(
           flex: 2,
           child: ExtendedTextField(
-              hintText: 'Enter your Password', iconData: Icons.key),
+              hintText: 'Enter your Password', iconData: Icons.lock),
         ),
         Expanded(
           flex: 1,

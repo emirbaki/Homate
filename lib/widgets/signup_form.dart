@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../core/facebook_logger.dart';
 import '../core/google_logger.dart';
 import 'extended_elevated_button.dart';
-import 'extended_textfield.dart';
 
 class SignupFormWidget extends StatelessWidget {
   const SignupFormWidget({

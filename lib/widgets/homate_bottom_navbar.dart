@@ -55,103 +55,100 @@ class HomateBottomNavBar extends StatelessWidget {
     final theme = Theme.of(context);
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
-      child: Container(
-        child: BottomAppBar(
-          shape: shape,
-          child: Row(
-              mainAxisAlignment: items.length <= 2
-                  ? MainAxisAlignment.spaceEvenly
-                  : MainAxisAlignment.spaceBetween,
-              children: [
-                for (final item in items)
-                  TweenAnimationBuilder<double>(
-                    tween: Tween(
-                      end: items.indexOf(item) == currentIndex ? 1.0 : 0.0,
-                    ),
-                    curve: curve,
-                    duration: duration,
-                    builder: (context, t, _) {
-                      final _selectedColor = item.selectedColor ??
-                          selectedItemColor ??
-                          theme.primaryColor;
+      child: BottomAppBar(
+        shape: shape,
+        child: Row(
+            mainAxisAlignment: items.length <= 2
+                ? MainAxisAlignment.spaceEvenly
+                : MainAxisAlignment.spaceBetween,
+            children: [
+              for (final item in items)
+                TweenAnimationBuilder<double>(
+                  tween: Tween(
+                    end: items.indexOf(item) == currentIndex ? 1.0 : 0.0,
+                  ),
+                  curve: curve,
+                  duration: duration,
+                  builder: (context, t, _) {
+                    final _selectedColor = item.selectedColor ??
+                        selectedItemColor ??
+                        theme.primaryColor;
 
-                      final _unselectedColor = item.unselectedColor ??
-                          unselectedItemColor ??
-                          theme.iconTheme.color;
+                    final _unselectedColor = item.unselectedColor ??
+                        unselectedItemColor ??
+                        theme.iconTheme.color;
 
-                      return Material(
-                        color: Color.lerp(
-                            _selectedColor.withOpacity(0.0),
-                            _selectedColor
-                                .withOpacity(selectedColorOpacity ?? 0.1),
-                            t),
-                        shape: itemShape,
-                        child: SizedBox(
-                          height: 64,
-                          child: InkWell(
-                            onTap: () => onTap?.call(items.indexOf(item)),
-                            customBorder: itemShape,
-                            focusColor: _selectedColor.withOpacity(0.1),
-                            highlightColor: _selectedColor.withOpacity(0.1),
-                            splashColor: _selectedColor.withOpacity(0.1),
-                            hoverColor: _selectedColor.withOpacity(0.1),
-                            child: Padding(
-                              padding: itemPadding -
-                                  (Directionality.of(context) ==
-                                          TextDirection.ltr
-                                      ? EdgeInsets.only(
-                                          right: itemPadding.right * t)
-                                      : EdgeInsets.only(
-                                          left: itemPadding.left * t)),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                textBaseline: TextBaseline.alphabetic,
-                                children: [
-                                  IconTheme(
-                                    data: IconThemeData(
-                                      color: Color.lerp(
-                                          _unselectedColor, _selectedColor, t),
-                                      size: 24,
-                                    ),
-                                    child: items.indexOf(item) == currentIndex
-                                        ? item.activeIcon ?? item.icon
-                                        : item.icon,
+                    return Material(
+                      color: Color.lerp(
+                          _selectedColor.withOpacity(0.0),
+                          _selectedColor
+                              .withOpacity(selectedColorOpacity ?? 0.1),
+                          t),
+                      shape: itemShape,
+                      child: SizedBox(
+                        height: 64,
+                        child: InkWell(
+                          onTap: () => onTap?.call(items.indexOf(item)),
+                          customBorder: itemShape,
+                          focusColor: _selectedColor.withOpacity(0.1),
+                          highlightColor: _selectedColor.withOpacity(0.1),
+                          splashColor: _selectedColor.withOpacity(0.1),
+                          hoverColor: _selectedColor.withOpacity(0.1),
+                          child: Padding(
+                            padding: itemPadding -
+                                (Directionality.of(context) == TextDirection.ltr
+                                    ? EdgeInsets.only(
+                                        right: itemPadding.right * t)
+                                    : EdgeInsets.only(
+                                        left: itemPadding.left * t)),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              textBaseline: TextBaseline.alphabetic,
+                              children: [
+                                IconTheme(
+                                  data: IconThemeData(
+                                    color: Color.lerp(
+                                        _unselectedColor, _selectedColor, t),
+                                    size: 24,
                                   ),
-                                  ClipRect(
-                                    clipBehavior: Clip.antiAlias,
-                                    child: SizedBox(
-                                      /// TODO: Constrain item height without a fixed value
-                                      ///
-                                      /// The Align property appears to make these full height, would be
-                                      /// best to find a way to make it respond only to padding.
-                                      height: 20,
-                                      child: Align(
-                                        alignment: const Alignment(0, 0),
-                                        widthFactor: t,
-                                        child: DefaultTextStyle(
-                                          style: TextStyle(
-                                            color: Color.lerp(
-                                                _selectedColor.withOpacity(0.0),
-                                                _selectedColor,
-                                                t),
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                          child: item.title,
+                                  child: items.indexOf(item) == currentIndex
+                                      ? item.activeIcon ?? item.icon
+                                      : item.icon,
+                                ),
+                                ClipRect(
+                                  clipBehavior: Clip.antiAlias,
+                                  child: SizedBox(
+                                    /// TODO: Constrain item height without a fixed value
+                                    ///
+                                    /// The Align property appears to make these full height, would be
+                                    /// best to find a way to make it respond only to padding.
+                                    height: 20,
+                                    child: Align(
+                                      alignment: const Alignment(0, 0),
+                                      widthFactor: t,
+                                      child: DefaultTextStyle(
+                                        style: TextStyle(
+                                          color: Color.lerp(
+                                              _selectedColor.withOpacity(0.0),
+                                              _selectedColor,
+                                              t),
+                                          fontWeight: FontWeight.w600,
                                         ),
+                                        child: item.title,
                                       ),
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
-                      );
-                    },
-                  ),
-              ]),
-        ),
+                      ),
+                    );
+                  },
+                ),
+            ]),
       ),
     );
   }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homate/utilities/color_utilities.dart';
 import 'package:homate/widgets/homate_bottom_navbar.dart';
-import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 import 'package:homate/pages/pages_list.dart';
 
@@ -23,7 +22,7 @@ class BottomBarWidget extends StatelessWidget {
           itemShape: const ContinuousRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(40))),
           itemPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-          duration: const Duration(seconds: 1),
+          duration: const Duration(milliseconds: 600),
           selectedColorOpacity: 0.1,
           selectedItemColor: HomateColorHelper.homateOrange,
           unselectedItemColor: Colors.black,

@@ -42,7 +42,7 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
         floatingActionButton: const HomateShopFloatingActionButton(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: const BottomBarWidget(currentIndex: 0),
-        backgroundColor: Color.fromARGB(255, 239, 239, 239),
+        backgroundColor: const Color.fromARGB(255, 239, 239, 239),
         body: TabBarView(children: [
           LoginFormWidget(width: width, height: height),
           SignupFormWidget(width: width, height: height)

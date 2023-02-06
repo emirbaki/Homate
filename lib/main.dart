@@ -32,7 +32,12 @@ class MyApp extends StatelessWidget {
             indicatorColor: Colors.white),
       ),
       initialRoute: '/',
-      routes: {'/': (context) => pages[0], '/wallet': (context) => pages[1]},
+      routes: {
+        '/': (context) => pages[0],
+        '/wallet': (context) => pages[1],
+        '/favorites': (context) => pages[2],
+        '/profile': (context) => pages[3]
+      },
       // home: const WalletPage(),
     );
   }

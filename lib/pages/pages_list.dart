@@ -7,4 +7,6 @@ final List pages = [
     title: 'Homate',
   ),
   const WalletPage(),
+  const WalletPage(),
+  const WalletPage(),
 ];

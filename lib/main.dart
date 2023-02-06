@@ -19,6 +19,8 @@ class MyApp extends StatelessWidget {
 
       theme: ThemeData(
         primarySwatch: HomateColorHelper.homateOrange,
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+            backgroundColor: HomateColorHelper.homateOrange),
         tabBarTheme: const TabBarTheme(
             indicator: UnderlineTabIndicator(
                 insets: EdgeInsets.symmetric(horizontal: 50),

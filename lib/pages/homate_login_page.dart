@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homate/widgets/bottom_bar_widget.dart';
 
+import '../widgets/homate_shop_fabutton.dart';
 import '../widgets/login_form.dart';
 import '../widgets/homate_logo_widget.dart';
 import '../widgets/signup_form.dart';
@@ -38,6 +39,8 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
             Tab(text: 'Sign Up'),
           ]),
         ),
+        floatingActionButton: const HomateShopFloatingActionButton(),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: const BottomBarWidget(currentIndex: 0),
         backgroundColor: Color.fromARGB(255, 239, 239, 239),
         body: TabBarView(children: [

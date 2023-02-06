@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homate/utilities/color_utilities.dart';
+import 'package:homate/widgets/homate_bottom_navbar.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 import 'package:homate/pages/pages_list.dart';
@@ -17,13 +18,15 @@ class BottomBarWidget extends StatelessWidget {
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
       child: Container(
-        color: const Color(0xff060c12),
-        child: SalomonBottomBar(
+        color: Color.fromARGB(255, 196, 196, 196),
+        child: HomateBottomNavBar(
+          itemShape: const ContinuousRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(40))),
           itemPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           duration: const Duration(seconds: 1),
           selectedColorOpacity: 0.1,
           selectedItemColor: HomateColorHelper.homateOrange,
-          unselectedItemColor: Colors.white,
+          unselectedItemColor: Colors.black,
           currentIndex: currentIndex,
           onTap: (i) {
             if (i != currentIndex) {
@@ -37,15 +40,24 @@ class BottomBarWidget extends StatelessWidget {
           },
           items: [
             /// Home
-            SalomonBottomBarItem(
+            HomateBottomNavBarItem(
               icon: const Icon(Icons.home),
               title: const Text("Home"),
             ),
-            SalomonBottomBarItem(
+            HomateBottomNavBarItem(
               icon: const Icon(Icons.account_balance_wallet),
               title: const Text("Wallet"),
             ),
+            HomateBottomNavBarItem(
+              icon: const Icon(Icons.star),
+              title: const Text("Favorite"),
+            ),
+            HomateBottomNavBarItem(
+              icon: const Icon(Icons.person),
+              title: const Text("Profile"),
+            ),
           ],
+          context: context,
         ),
       ),
     );

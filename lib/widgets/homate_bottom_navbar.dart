@@ -56,29 +56,49 @@ class HomateBottomNavBar extends StatelessWidget {
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
       child: BottomAppBar(
+        notchMargin: 3,
         shape: shape,
         child: Row(
             mainAxisAlignment: items.length <= 2
                 ? MainAxisAlignment.spaceEvenly
                 : MainAxisAlignment.spaceBetween,
-            children: [
-              for (final item in items)
-                TweenAnimationBuilder<double>(
-                  tween: Tween(
-                    end: items.indexOf(item) == currentIndex ? 1.0 : 0.0,
-                  ),
-                  curve: curve,
-                  duration: duration,
-                  builder: (context, t, _) {
-                    final _selectedColor = item.selectedColor ??
-                        selectedItemColor ??
-                        theme.primaryColor;
+            children: builderMetodu(theme)),
+      ),
+    );
+  }
 
-                    final _unselectedColor = item.unselectedColor ??
-                        unselectedItemColor ??
-                        theme.iconTheme.color;
+  List<Widget> builderMetodu(ThemeData theme) {
+    return [
+      for (final item in items)
+        TweenAnimationBuilder<double>(
+          tween: Tween(
+            end: items.indexOf(item) == currentIndex ? 1.0 : 0.0,
+          ),
+          curve: curve,
+          duration: duration,
+          //bos navbar için 2.indeksteki itemi boş bıraktırma
+          builder: items.indexOf(item) == 2
+              ? (context, t, _) {
+                  return const Expanded(
+                    child: Opacity(
+                        opacity: 0,
+                        child: IconButton(
+                          icon: Icon(Icons.no_cell),
+                          onPressed: null,
+                        )),
+                  );
+                }
+              : (context, t, _) {
+                  final _selectedColor = item.selectedColor ??
+                      selectedItemColor ??
+                      theme.primaryColor;
 
-                    return Material(
+                  final _unselectedColor = item.unselectedColor ??
+                      unselectedItemColor ??
+                      theme.iconTheme.color;
+
+                  return Expanded(
+                    child: Material(
                       color: Color.lerp(
                           _selectedColor.withOpacity(0.0),
                           _selectedColor
@@ -145,19 +165,20 @@ class HomateBottomNavBar extends StatelessWidget {
                           ),
                         ),
                       ),
-                    );
-                  },
-                ),
-            ]),
-      ),
-    );
+                    ),
+                  );
+                },
+        ),
+    ];
   }
 }
 
 class HomateBottomNavBarItem {
+  @override
   final Widget icon;
 
   /// An icon to display when this tab bar is active.
+  @override
   final Widget? activeIcon;
 
   /// Text to display, ie `Home`

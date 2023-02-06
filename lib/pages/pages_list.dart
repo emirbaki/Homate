@@ -9,6 +9,7 @@ final List pages = [
     title: 'Homate',
   ),
   const WalletPage(),
+  null, //bos navbar
   const HomateFavoritesPage(),
   const HomateProfilePage(),
 ];

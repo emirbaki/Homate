@@ -35,8 +35,9 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => pages[0],
         '/wallet': (context) => pages[1],
-        '/favorites': (context) => pages[2],
-        '/profile': (context) => pages[3]
+        //page[2]yi bottom appbardaki görünmez buton için null bıraktım
+        '/favorites': (context) => pages[3],
+        '/profile': (context) => pages[4]
       },
       // home: const WalletPage(),
     );

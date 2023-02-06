@@ -19,9 +19,7 @@ class BottomBarWidget extends StatelessWidget {
       child: Container(
         color: Color.fromARGB(255, 196, 196, 196),
         child: HomateBottomNavBar(
-          itemShape: const ContinuousRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(40))),
-          itemPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          itemPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           duration: const Duration(milliseconds: 600),
           selectedColorOpacity: 0.1,
           selectedItemColor: HomateColorHelper.homateOrange,
@@ -47,6 +45,12 @@ class BottomBarWidget extends StatelessWidget {
               icon: const Icon(Icons.account_balance_wallet),
               title: const Text("Wallet"),
             ),
+            //Bos olan navbar item
+            HomateBottomNavBarItem(
+              icon: const Icon(Icons.account_balance_wallet),
+              title: const Text("Wallet"),
+            ),
+            //Bos olan navbar item
             HomateBottomNavBarItem(
               icon: const Icon(Icons.star),
               title: const Text("Favorite"),

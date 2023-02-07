@@ -7,7 +7,7 @@ class HomateProfilePage extends StatefulWidget {
   const HomateProfilePage({Key? key}) : super(key: key);
 
   @override
-  _HomateProfilePageState createState() => _HomateProfilePageState();
+  State<HomateProfilePage> createState() => _HomateProfilePageState();
 }
 
 class _HomateProfilePageState extends State<HomateProfilePage> {

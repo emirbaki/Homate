@@ -26,7 +26,7 @@ class CardBuild extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _CardBuildState createState() => _CardBuildState();
+  State<CardBuild> createState() => _CardBuildState();
 }
 
 class _CardBuildState extends State<CardBuild> {

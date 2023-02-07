@@ -21,7 +21,7 @@ class WalletPage extends StatefulWidget {
   const WalletPage({Key? key}) : super(key: key);
 
   @override
-  _WalletPageState createState() => _WalletPageState();
+  State<WalletPage> createState() => _WalletPageState();
 }
 
 class _WalletPageState extends State<WalletPage> {

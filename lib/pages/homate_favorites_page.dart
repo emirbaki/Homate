@@ -7,7 +7,7 @@ class HomateFavoritesPage extends StatefulWidget {
   const HomateFavoritesPage({Key? key}) : super(key: key);
 
   @override
-  _HomateFavoritesPageState createState() => _HomateFavoritesPageState();
+  State<HomateFavoritesPage> createState() => _HomateFavoritesPageState();
 }
 
 class _HomateFavoritesPageState extends State<HomateFavoritesPage> {

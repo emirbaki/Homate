@@ -1,5 +1,6 @@
 import 'package:homate/pages/homate_favorites_page.dart';
 import 'package:homate/pages/homate_profile_page.dart';
+import 'package:homate/pages/homate_shop_page.dart';
 import 'package:homate/pages/homate_wallet_page.dart';
 import 'package:homate/pages/homate_login_page.dart';
 
@@ -12,4 +13,5 @@ final List pages = [
   null, //bos navbar
   const HomateFavoritesPage(),
   const HomateProfilePage(),
+  const HomateShopPage()
 ];

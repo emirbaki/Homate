@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../pages/pages_list.dart';
+
 class HomateShopFloatingActionButton extends StatelessWidget {
   const HomateShopFloatingActionButton({
     super.key,
@@ -8,7 +10,14 @@ class HomateShopFloatingActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => pages[5],
+          ),
+        );
+      },
       child: const Icon(Icons.shopping_cart_sharp),
     );
   }

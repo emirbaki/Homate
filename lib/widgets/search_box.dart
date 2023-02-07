@@ -27,6 +27,7 @@ class SearchBox extends StatelessWidget {
               hintStyle: TextStyle(
                 color: HomateColorHelper.homateOrange.withOpacity(0.8),
               ),
+              iconColor: HomateColorHelper.homateOrange.withOpacity(0.8),
               icon: const Icon(Icons.search)),
         ));
   }

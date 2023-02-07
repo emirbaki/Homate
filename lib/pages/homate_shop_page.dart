@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:homate/utilities/color_utilities.dart';
 
 import '../widgets/bottom_bar_widget.dart';
+import '../widgets/category_list.dart';
 import '../widgets/homate_shop_fabutton.dart';
 import '../widgets/search_box.dart';
 
@@ -23,50 +24,114 @@ class _HomateShopPageState extends State<HomateShopPage> {
         floatingActionButton: const HomateShopFloatingActionButton(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         body: SafeArea(
-          child: Column(children: const [SearchBox(), CategoryList()]),
+          child: Column(children: [
+            const SearchBox(),
+            const CategoryList(),
+            Expanded(
+              child: Stack(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(top: 70),
+                    decoration: BoxDecoration(
+                        color: Colors.grey.shade100,
+                        borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(40),
+                            topRight: Radius.circular(40))),
+                  ),
+                  ListView.builder(
+                    itemCount: 5,
+                    itemBuilder: (context, index) => ShopCard(),
+                  )
+                ],
+              ),
+            )
+          ]),
         ));
   }
 }
 
-class CategoryList extends StatefulWidget {
-  const CategoryList({super.key});
+class ShopCard extends StatelessWidget {
+  const ShopCard({Key? key}) : super(key: key);
 
-  @override
-  CategoryListState createState() => CategoryListState();
-}
-
-class CategoryListState extends State<CategoryList> {
-  int selectedIndex = 0;
-  List categories = ['Sulu Yemek', 'Hamur işi', 'İçecek', 'Ev Yemeği'];
+  final link =
+      'https://www.pngmart.com/files/7/Japanese-Food-PNG-Transparent-Image.png';
+  final boxShadow2 = const BoxShadow(
+      offset: Offset(0, 15), blurRadius: 27, color: Colors.black26);
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.symmetric(vertical: 10),
-        height: 30,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: categories.length,
-          itemBuilder: ((context, index) => GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedIndex = index;
-                  });
-                },
-                child: Container(
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.only(
-                    left: 20,
-                    right: index == categories.length - 1 ? 20 : 0,
-                  ),
+      height: 160,
+      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          Container(
+            height: 136,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(22),
+                color: Colors.amber.shade700,
+                boxShadow: [boxShadow2]),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 20, right: 10),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(22), color: Colors.white),
+          ),
+          Positioned(
+              top: 0,
+              right: 0,
+              child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
-                  decoration: BoxDecoration(
-                      color: index == selectedIndex
-                          ? HomateColorHelper.homateOrange.withOpacity(0.4)
-                          : Colors.transparent,
-                      borderRadius: BorderRadius.circular(6)),
-                  child: Text(categories[index]),
+                  height: 160,
+                  width: 200,
+                  child: Image.network(
+                    link,
+                    fit: BoxFit.fitWidth,
+                  ))),
+          Positioned(
+              left: 0,
+              bottom: 0,
+              child: SizedBox(
+                height: 136,
+                width: MediaQuery.of(context).size.width - 200,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(top: 10, left: 20, right: 20),
+                      child: Text(
+                        "Suşi",
+                        style: Theme.of(context).textTheme.button,
+                      ),
+                    ),
+                    const Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Text(
+                        "Yemek Örneği harika lan bu yemek",
+                        style: Theme.of(context).textTheme.button,
+                      ),
+                    ),
+                    const Spacer(),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20 * 1.5, vertical: 20 / 4),
+                      decoration: BoxDecoration(
+                          color: HomateColorHelper.homateOrange.withOpacity(1),
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(22),
+                              topRight: Radius.circular(22))),
+                      child: Text(
+                        '\$24',
+                        style: TextStyle(color: Colors.yellow.shade100),
+                      ),
+                    )
+                  ],
                 ),
-              )),
-        ));
+              ))
+        ],
+      ),
+    );
   }
 }

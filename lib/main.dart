@@ -37,7 +37,8 @@ class MyApp extends StatelessWidget {
         '/wallet': (context) => pages[1],
         //page[2]yi bottom appbardaki görünmez buton için null bıraktım
         '/favorites': (context) => pages[3],
-        '/profile': (context) => pages[4]
+        '/profile': (context) => pages[4],
+        '/shops': (context) => pages[5]
       },
       // home: const WalletPage(),
     );

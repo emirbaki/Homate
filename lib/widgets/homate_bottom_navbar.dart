@@ -149,12 +149,12 @@ class HomateBottomNavBar extends StatelessWidget {
                                       widthFactor: t,
                                       child: DefaultTextStyle(
                                         style: TextStyle(
-                                          color: Color.lerp(
-                                              _selectedColor.withOpacity(0.0),
-                                              _selectedColor,
-                                              t),
-                                          fontWeight: FontWeight.w600,
-                                        ),
+                                            color: Color.lerp(
+                                                _selectedColor.withOpacity(0.0),
+                                                _selectedColor,
+                                                t),
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 11),
                                         child: item.title,
                                       ),
                                     ),

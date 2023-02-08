@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:homate/data/shops.dart';
+import 'package:homate/pages/homate_shop_page.dart';
 import 'package:homate/pages/pages_list.dart';
 import 'package:homate/utilities/color_utilities.dart';
 
@@ -44,7 +46,8 @@ class _HomateShopListPageState extends State<HomateShopListPage> {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => pages[4],
+                            builder: (context) =>
+                                HomateShopPage(shop: shops[0]),
                           ));
                     }),
                   )

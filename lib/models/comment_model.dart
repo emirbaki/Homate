@@ -1,5 +1,3 @@
-import 'package:homate/models/shop_model.dart';
-
 import 'user_model.dart';
 
 class Comment {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homate/data/shops.dart';
 import 'package:homate/pages/homate_shop_page.dart';
-import 'package:homate/pages/pages_list.dart';
 import 'package:homate/utilities/color_utilities.dart';
 
 import '../widgets/bottom_bar_widget.dart';
@@ -116,7 +115,7 @@ class ShopCard extends StatelessWidget {
                             const EdgeInsets.only(top: 10, left: 20, right: 20),
                         child: Text(
                           "Suşi",
-                          style: Theme.of(context).textTheme.button,
+                          style: Theme.of(context).textTheme.labelLarge,
                         ),
                       ),
                       const Spacer(),
@@ -124,7 +123,7 @@ class ShopCard extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(
                           "Yemek Örneği harika lan bu yemek",
-                          style: Theme.of(context).textTheme.button,
+                          style: Theme.of(context).textTheme.labelLarge,
                         ),
                       ),
                       const Spacer(),

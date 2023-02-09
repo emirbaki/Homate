@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homate/widgets/bottom_bar_widget.dart';
+import 'package:homate/widgets/homate_drawer.dart';
 
 import '../widgets/homate_shop_fabutton.dart';
 import '../widgets/login_form.dart';
@@ -26,6 +27,7 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        drawer: const HomateDrawer(),
         appBar: AppBar(
           toolbarHeight: 150,
           shape: const RoundedRectangleBorder(

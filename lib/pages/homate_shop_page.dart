@@ -3,7 +3,6 @@ import 'package:homate/data/shops.dart';
 import 'package:homate/models/product_model.dart';
 import 'package:homate/widgets/bottom_bar_widget.dart';
 import 'package:homate/widgets/homate_shop_fabutton.dart';
-import 'package:homate/widgets/search_box.dart';
 
 import '../models/shop_model.dart';
 import '../utilities/color_utilities.dart';
@@ -29,29 +28,33 @@ class _HomateShopPageState extends State<HomateShopPage> {
       body: SafeArea(
           child: Column(
         children: [
-          Expanded(
-            flex: 6,
-            child: Stack(children: [
-              Container(
-                margin: const EdgeInsets.only(top: 40),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.black),
-              ),
-              PageView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 5,
-                  itemBuilder: (context, index) => ShopPhoto())
-            ]),
+          // Expanded(
+          //   flex: 6,
+          //   child: Stack(children: [
+          //     Container(
+          //       margin: const EdgeInsets.only(top: 40),
+          //       decoration: BoxDecoration(
+          //           borderRadius: BorderRadius.circular(20),
+          //           color: Colors.black),
+          //     ),
+          //     PageView.builder(
+          //         scrollDirection: Axis.horizontal,
+          //         itemCount: 5,
+          //         itemBuilder: (context, index) => const ShopPhoto())
+          //   ]),
+          // ),
+          // const Spacer(flex: 1),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Center(child: Text('Yemek Listesi')),
           ),
-          Spacer(flex: 1),
           Expanded(
             flex: 4,
             child: Container(
               child: ListView.builder(
                 itemCount: foodList.length,
                 itemBuilder: (context, index) {
-                  for (var food in foodList) {
+                  for (Product food in foodList) {
                     return FoodCard(
                       food: foodList[index],
                       index: index,
@@ -65,6 +68,7 @@ class _HomateShopPageState extends State<HomateShopPage> {
                       },
                     );
                   }
+                  return null;
                 },
               ),
             ),
@@ -128,7 +132,7 @@ class _FoodCardState extends State<FoodCard> {
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     height: 160,
                     width: 200,
-                    child: widget.food.foodImages![0])),
+                    child: widget.food.foodImages[0])),
             Positioned(
                 left: 0,
                 bottom: 0,
@@ -143,7 +147,7 @@ class _FoodCardState extends State<FoodCard> {
                             const EdgeInsets.only(top: 10, left: 20, right: 20),
                         child: Text(
                           widget.food.name,
-                          style: Theme.of(context).textTheme.button,
+                          style: Theme.of(context).textTheme.labelLarge,
                         ),
                       ),
                       const Spacer(),
@@ -151,7 +155,7 @@ class _FoodCardState extends State<FoodCard> {
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(
                           widget.food.description,
-                          style: Theme.of(context).textTheme.button,
+                          style: Theme.of(context).textTheme.labelLarge,
                         ),
                       ),
                       const Spacer(),

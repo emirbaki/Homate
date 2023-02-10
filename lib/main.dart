@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:homate/utilities/color_utilities.dart';
 
 import 'package:homate/pages/pages_list.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
 
       theme: ThemeData(
         primarySwatch: HomateColorHelper.homateOrange,
+        fontFamily: GoogleFonts.roboto().fontFamily,
         floatingActionButtonTheme: FloatingActionButtonThemeData(
             backgroundColor: HomateColorHelper.homateOrange),
         tabBarTheme: const TabBarTheme(

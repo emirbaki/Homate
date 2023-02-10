@@ -5,6 +5,7 @@ import 'package:homate/utilities/color_utilities.dart';
 
 import '../widgets/bottom_bar_widget.dart';
 import '../widgets/category_list.dart';
+import '../widgets/homate_drawer.dart';
 import '../widgets/homate_shop_fabutton.dart';
 import '../widgets/search_box.dart';
 

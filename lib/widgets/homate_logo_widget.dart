@@ -8,9 +8,12 @@ class LogoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 200,
       alignment: Alignment.center,
-      child: Image.network(
-          'https://seeklogo.com/images/T/trendyol-yemek-logo-A119EAD68E-seeklogo.com.png'),
+      child: Image.asset(
+        'assets/homatelogo.png',
+        fit: BoxFit.fitWidth,
+      ),
     );
   }
 }

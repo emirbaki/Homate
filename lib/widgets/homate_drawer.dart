@@ -46,11 +46,14 @@ class HomateDrawer extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text('${users[0].name} ${users[0].surname}',
-                        textScaleFactor: 2,
-                        style: const TextStyle(
-                          color: Colors.white,
-                        )),
+                    child: Text(
+                      '${users[0].name} ${users[0].surname}',
+                      textScaleFactor: 2,
+                      style: Theme.of(context)
+                          .textTheme
+                          .labelLarge!
+                          .copyWith(color: Colors.white),
+                    ),
                   ),
                   Text(
                     users[0].email,

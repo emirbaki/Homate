@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:homate/data/shops.dart';
 import 'package:homate/models/product_model.dart';
 import 'package:homate/widgets/bottom_bar_widget.dart';
+import 'package:homate/widgets/homate_drawer.dart';
 import 'package:homate/widgets/homate_shop_fabutton.dart';
 
 import '../models/shop_model.dart';
 import '../utilities/color_utilities.dart';
+import '../widgets/general_appbar.dart';
 
 class HomateShopPage extends StatefulWidget {
   const HomateShopPage({Key? key, this.shop}) : super(key: key);
@@ -20,8 +22,8 @@ class _HomateShopPageState extends State<HomateShopPage> {
   Widget build(BuildContext context) {
     final foodList = widget.shop!.foods;
     return Scaffold(
-      appBar: AppBar(
-          title: Center(child: Text(widget.shop?.name ?? 'İsim bulunamadi'))),
+      drawer: const HomateDrawer(),
+      appBar: GeneralAppBar(title: widget.shop?.name ?? 'İsim bulunamadi'),
       bottomNavigationBar: const BottomBarWidget(currentIndex: 5),
       floatingActionButton: const HomateShopFloatingActionButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

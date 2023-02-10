@@ -15,6 +15,7 @@ import 'package:flutter/services.dart';
 
 import 'package:checkdigit/checkdigit.dart';
 
+import '../widgets/homate_drawer.dart';
 import '../widgets/homate_shop_fabutton.dart';
 
 class WalletPage extends StatefulWidget {
@@ -161,6 +162,7 @@ class _WalletPageState extends State<WalletPage> {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
+      drawer: const HomateDrawer(),
       floatingActionButton: const HomateShopFloatingActionButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: _bottomNavBarVisible

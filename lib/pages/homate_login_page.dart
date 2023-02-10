@@ -29,6 +29,7 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
       child: Scaffold(
         drawer: const HomateDrawer(),
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           toolbarHeight: 150,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(

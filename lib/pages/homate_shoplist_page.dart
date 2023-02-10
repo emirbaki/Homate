@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:homate/data/shops.dart';
 import 'package:homate/pages/homate_shop_page.dart';
 import 'package:homate/utilities/color_utilities.dart';
+import 'package:homate/widgets/general_appbar.dart';
 
 import '../widgets/bottom_bar_widget.dart';
 import '../widgets/category_list.dart';
@@ -21,7 +22,8 @@ class _HomateShopListPageState extends State<HomateShopListPage> {
   Widget build(BuildContext context) {
     int currentIndex = 5;
     return Scaffold(
-        appBar: AppBar(title: const Center(child: Text('Shops'))),
+        drawer: const HomateDrawer(),
+        appBar: const GeneralAppBar(title: 'Shops'),
         bottomNavigationBar: BottomBarWidget(currentIndex: currentIndex),
         floatingActionButton: const HomateShopFloatingActionButton(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

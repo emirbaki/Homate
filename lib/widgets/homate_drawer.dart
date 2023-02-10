@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homate/data/users.dart';
 
 import '../utilities/color_utilities.dart';
 
@@ -16,13 +17,52 @@ class HomateDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          DrawerHeader(
-            decoration: BoxDecoration(
-              borderRadius:
-                  const BorderRadius.only(topRight: Radius.circular(20)),
-              color: HomateColorHelper.homateOrange.withOpacity(1),
+          Container(
+            height: 240,
+            child: DrawerHeader(
+              decoration: BoxDecoration(
+                borderRadius:
+                    const BorderRadius.only(topRight: Radius.circular(20)),
+                color: HomateColorHelper.homateOrange.withOpacity(1),
+              ),
+              child: Expanded(
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(bottom: 8),
+                      child: const Text(
+                        'Menu',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: 72,
+                      width: 72,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(50),
+                        child: Image.asset('assets/emirfotoavatar.jpg'),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text('${users[0].name} ${users[0].surname}',
+                          textScaleFactor: 2,
+                          style: const TextStyle(
+                            color: Colors.white,
+                          )),
+                    ),
+                    Text(
+                      users[0].email,
+                      style: const TextStyle(
+                        color: Colors.white,
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ),
-            child: const Text('Menu'),
           ),
           const ListTile(
             leading: Icon(Icons.person),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomateBottomNavBar extends StatelessWidget {
   const HomateBottomNavBar({
@@ -149,12 +150,15 @@ class HomateBottomNavBar extends StatelessWidget {
                                       widthFactor: t,
                                       child: DefaultTextStyle(
                                         style: TextStyle(
-                                            color: Color.lerp(
-                                                selectedColor.withOpacity(0.0),
-                                                selectedColor,
-                                                t),
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 11),
+                                          color: Color.lerp(
+                                              selectedColor.withOpacity(0.0),
+                                              selectedColor,
+                                              t),
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 11,
+                                          fontFamily:
+                                              GoogleFonts.roboto().fontFamily,
+                                        ),
                                         child: item.title,
                                       ),
                                     ),

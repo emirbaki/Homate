@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homate/widgets/bottom_bar_widget.dart';
+import 'package:homate/widgets/general_appbar.dart';
+import 'package:homate/widgets/homate_drawer.dart';
 
 import '../widgets/homate_shop_fabutton.dart';
 
@@ -15,7 +17,10 @@ class _HomateProfilePageState extends State<HomateProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Center(child: Text('Profile'))),
+      drawer: const HomateDrawer(),
+      appBar: const GeneralAppBar(
+        title: 'Profile',
+      ),
       bottomNavigationBar: BottomBarWidget(currentIndex: currentIndex),
       floatingActionButton: const HomateShopFloatingActionButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

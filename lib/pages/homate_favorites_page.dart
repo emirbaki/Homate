@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:homate/widgets/bottom_bar_widget.dart';
+import 'package:homate/widgets/homate_drawer.dart';
 
+import '../widgets/general_appbar.dart';
 import '../widgets/homate_shop_fabutton.dart';
 
 class HomateFavoritesPage extends StatefulWidget {
@@ -15,7 +17,10 @@ class _HomateFavoritesPageState extends State<HomateFavoritesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Center(child: Text('Favorites'))),
+      drawer: const HomateDrawer(),
+      appBar: const GeneralAppBar(
+        title: 'Favorites',
+      ),
       bottomNavigationBar: BottomBarWidget(currentIndex: currentIndex),
       floatingActionButton: const HomateShopFloatingActionButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

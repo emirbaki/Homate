@@ -123,10 +123,9 @@ class _CardBuildState extends State<CardBuild> {
                   ),
                   child: Text(
                     "${('*' * 12).replaceAllMapped(RegExp(r".{4}"), (match) => "${match.group(0)} ")}${cardNumber.toString().substring(cardNumber.toString().length - 4)}",
-                    style: GoogleFonts.inconsolata(
+                    style: GoogleFonts.roboto(
                       color: fontColor,
                       fontSize: size.height * 0.031,
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
@@ -140,10 +139,9 @@ class _CardBuildState extends State<CardBuild> {
                   ),
                   child: Text(
                     "VALID THRU ${widget.validThru}",
-                    style: GoogleFonts.inconsolata(
+                    style: GoogleFonts.roboto(
                       color: fontColor,
                       fontSize: size.height * 0.015,
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
@@ -161,10 +159,9 @@ class _CardBuildState extends State<CardBuild> {
                     child: Text(
                       cardOwner,
                       overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.inconsolata(
+                      style: GoogleFonts.roboto(
                         color: fontColor,
                         fontSize: size.height * 0.025,
-                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),

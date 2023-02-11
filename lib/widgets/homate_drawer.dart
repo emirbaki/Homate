@@ -69,25 +69,30 @@ class HomateDrawer extends StatelessWidget {
             leading: Icon(Icons.person),
             title: Text('My Profile'),
           ),
+          const Divider(),
           const ListTile(
             leading: Icon(Icons.wallet),
             title: Text('My Wallet'),
           ),
+          const Divider(),
           const AboutListTile(
             icon: Icon(Icons.info),
             applicationVersion: 'alpha 1.0',
             child: Text('About App'),
           ),
+          const Divider(),
           const ListTile(
             leading: Icon(Icons.settings),
             title: Text('Settings'),
           ),
+          const Divider(),
           const ListTile(
             leading: Icon(Icons.logout),
             title: Text('Log Out'),
             textColor: Colors.red,
             iconColor: Colors.red,
           ),
+          const Divider(),
         ],
       ),
     );

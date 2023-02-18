@@ -1,5 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
+import '../core/general_controller_app.dart';
+import '../data/favorites.dart';
 import '../models/product_model.dart';
 import '../utilities/color_utilities.dart';
 
@@ -22,6 +26,7 @@ class FoodCard extends StatefulWidget {
 }
 
 class _FoodCardState extends State<FoodCard> {
+  var favoriteListInstance = getIt<FavoritesHandler>();
   final boxShadow2 = const BoxShadow(
       offset: Offset(0, 15), blurRadius: 27, color: Colors.black26);
 
@@ -123,6 +128,16 @@ class _FoodCardState extends State<FoodCard> {
   void setFavorite() {
     setState(() {
       widget.isFavorite = !widget.isFavorite;
+      if (widget.isFavorite) {
+        if (!favoriteListInstance.favorites.contains(widget.food)) {
+          favoriteListInstance.addFavorites(widget.food);
+        }
+      } else {
+        if (favoriteListInstance.favorites.contains(widget.food)) {
+          favoriteListInstance.removeFromFavorites(widget.food);
+          log(widget.index.toString());
+        }
+      }
     });
   }
 }

@@ -6,6 +6,7 @@ import 'package:homate/models/product_model.dart';
 import 'package:homate/widgets/bottom_bar_widget.dart';
 import 'package:homate/widgets/homate_drawer.dart';
 import 'package:homate/widgets/homate_shop_fabutton.dart';
+import 'package:homate/widgets/pageview_indicator.dart';
 
 import '../models/shop_model.dart';
 import '../utilities/color_utilities.dart';
@@ -21,6 +22,7 @@ class HomateShopPage extends StatefulWidget {
 }
 
 class _HomateShopPageState extends State<HomateShopPage> {
+  var _selectedPageViewIndex = 0;
   final dragController = DraggableScrollableController();
   @override
   void initState() {
@@ -39,13 +41,13 @@ class _HomateShopPageState extends State<HomateShopPage> {
   void sizeAyarla() {
     setState(() {
       draggableScrollableSheetSize = dragController.size;
-      log(draggableScrollableSheetSize.toString());
     });
   }
 
   @override
   Widget build(BuildContext context) {
     final foodList = widget.shop!.foods;
+
     return Scaffold(
       drawer: const HomateDrawer(),
       appBar: GeneralAppBar(title: widget.shop?.name ?? 'İsim bulunamadi'),
@@ -70,10 +72,27 @@ class _HomateShopPageState extends State<HomateShopPage> {
                       color: Colors.transparent),
                 ),
                 PageView.builder(
+                    onPageChanged: (value) => setState(() {
+                          _selectedPageViewIndex = value;
+                        }),
                     scrollDirection: Axis.horizontal,
                     itemCount: 5,
                     itemBuilder: (context, index) => const ShopPhoto())
               ]),
+            ),
+          ),
+          Opacity(
+            opacity: (1 - draggableScrollableSheetSize),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ...List.generate(
+                  5,
+                  (index) => PageviewIndicator(
+                    isActive: _selectedPageViewIndex == index ? true : false,
+                  ),
+                ),
+              ],
             ),
           ),
           // const Spacer(flex: 1),

@@ -115,6 +115,7 @@ class _HomateShopPageState extends State<HomateShopPage> {
                       return FoodCard(
                         food: foodList[index],
                         index: index,
+                        pageRefreshOnFavorites: () {},
                         press: () {
                           Navigator.pushReplacement(
                               context,

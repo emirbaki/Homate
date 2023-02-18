@@ -14,12 +14,14 @@ class FoodCard extends StatefulWidget {
     required this.press,
     required this.index,
     this.isFavorite = false,
+    required this.pageRefreshOnFavorites,
   });
 
   bool isFavorite;
   final int index;
   final Product food;
   final VoidCallback press;
+  final VoidCallback pageRefreshOnFavorites;
 
   @override
   State<FoodCard> createState() => _FoodCardState();
@@ -131,13 +133,19 @@ class _FoodCardState extends State<FoodCard> {
       if (widget.isFavorite) {
         if (!favoriteListInstance.favorites.contains(widget.food)) {
           favoriteListInstance.addFavorites(widget.food);
+          // favoriteList.add(widget.food);
         }
       } else {
         if (favoriteListInstance.favorites.contains(widget.food)) {
           favoriteListInstance.removeFromFavorites(widget.food);
+          // favoriteList.remove(widget.food);
           log(widget.index.toString());
+          log(favoriteListInstance.favorites.length.toString() +
+              ' liste uzunlugu');
         }
       }
     });
+
+    widget.pageRefreshOnFavorites();
   }
 }

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:homate/data/shops.dart';
 import 'package:homate/models/product_model.dart';
@@ -9,7 +7,6 @@ import 'package:homate/widgets/homate_shop_fabutton.dart';
 import 'package:homate/widgets/pageview_indicator.dart';
 
 import '../models/shop_model.dart';
-import '../utilities/color_utilities.dart';
 import '../widgets/food_card.dart';
 import '../widgets/general_appbar.dart';
 

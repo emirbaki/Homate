@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:homate/core/general_controller_app.dart';
 import 'package:homate/utilities/color_utilities.dart';
 
 import 'package:homate/pages/pages_list.dart';
 import 'package:homate/utilities/theme_utilities.dart';
 
 void main() {
+  setup();
   runApp(const MyApp());
 }
 

@@ -17,21 +17,20 @@ class HomateFavoritesPage extends StatefulWidget {
 }
 
 class _HomateFavoritesPageState extends State<HomateFavoritesPage> {
-  final favoriteListInstance = getIt<FavoritesHandler>();
-  var listLength = 0;
+  int listLengthNotifier = 0;
+  var favoriteListInstance = getIt<FavoritesHandler>();
   int currentIndex = 3;
-
-  int defineLength() {
-    setState(() {
-      listLength = favoriteListInstance.favorites.length;
-    });
-    return listLength;
-  }
 
   @override
   void initState() {
+    listLengthNotifier = favoriteListInstance.favorites.length;
     super.initState();
-    defineLength();
+  }
+
+  void updateListLength() {
+    setState(() {
+      listLengthNotifier = favoriteListInstance.favorites.length;
+    });
   }
 
   @override
@@ -47,14 +46,15 @@ class _HomateFavoritesPageState extends State<HomateFavoritesPage> {
       body: ListView.builder(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        itemCount: defineLength(),
+        itemCount: listLengthNotifier,
         itemBuilder: (context, index) {
           for (Product food in favoriteListInstance.favorites) {
             return FoodCard(
               food: favoriteListInstance.favorites[index],
               index: index,
               isFavorite: true,
-              press: () => print("hello"),
+              pageRefreshOnFavorites: () => updateListLength(),
+              press: () => print(listLengthNotifier),
             );
           }
           return null;

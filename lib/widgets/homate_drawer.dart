@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:homate/data/users.dart';
+import 'package:homate/utilities/theme_utilities.dart';
+import 'package:homate/widgets/theme_switch.dart';
 
+import '../main.dart';
 import '../utilities/color_utilities.dart';
 
 class HomateDrawer extends StatelessWidget {
@@ -65,25 +68,41 @@ class HomateDrawer extends StatelessWidget {
               ),
             ),
           ),
-          const ListTile(
-            leading: Icon(Icons.person),
-            title: Text('My Profile'),
+          ListTile(
+            leading: const Icon(Icons.person),
+            title: Text('My Profile',
+                style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                    color: MyApp.of(context).getTheme() == ThemeMode.light
+                        ? Colors.black
+                        : Colors.white)),
           ),
           const Divider(),
-          const ListTile(
-            leading: Icon(Icons.wallet),
-            title: Text('My Wallet'),
+          ListTile(
+            leading: const Icon(Icons.wallet),
+            title: Text('My Wallet',
+                style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                    color: MyApp.of(context).getTheme() == ThemeMode.light
+                        ? Colors.black
+                        : Colors.white)),
           ),
           const Divider(),
-          const AboutListTile(
-            icon: Icon(Icons.info),
+          AboutListTile(
+            icon: const Icon(Icons.info),
             applicationVersion: 'alpha 1.0',
-            child: Text('About App'),
+            child: Text('About App',
+                style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                    color: MyApp.of(context).getTheme() == ThemeMode.light
+                        ? Colors.black
+                        : Colors.white)),
           ),
           const Divider(),
-          const ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
+          ListTile(
+            leading: const Icon(Icons.settings),
+            title: Text('Settings',
+                style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                    color: MyApp.of(context).getTheme() == ThemeMode.light
+                        ? Colors.black
+                        : Colors.white)),
           ),
           const Divider(),
           const ListTile(
@@ -93,6 +112,7 @@ class HomateDrawer extends StatelessWidget {
             iconColor: Colors.red,
           ),
           const Divider(),
+          const Center(child: ThemeSwitch()),
         ],
       ),
     );

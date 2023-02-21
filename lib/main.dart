@@ -11,8 +11,28 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+
+  static _MyAppState of(BuildContext context) =>
+      context.findAncestorStateOfType<_MyAppState>()!;
+}
+
+class _MyAppState extends State<MyApp> {
+  ThemeMode _themeMode = ThemeMode.light;
+
+  void changeTheme(ThemeMode mode) {
+    setState(() {
+      _themeMode = mode;
+    });
+  }
+
+  ThemeMode getTheme() {
+    return _themeMode;
+  }
 
   // This widget is the root of your application.
   @override
@@ -21,22 +41,9 @@ class MyApp extends StatelessWidget {
       title: 'Homate',
       debugShowCheckedModeBanner: false,
 
-      theme: ThemeData(
-        primarySwatch: HomateColorHelper.homateOrange,
-        fontFamily: GoogleFonts.roboto().fontFamily,
-        textTheme: HomateThemeHelper.textTheme,
-        floatingActionButtonTheme: FloatingActionButtonThemeData(
-            backgroundColor: HomateColorHelper.homateOrange),
-        tabBarTheme: const TabBarTheme(
-            indicator: UnderlineTabIndicator(
-                insets: EdgeInsets.symmetric(horizontal: 50),
-                borderRadius: BorderRadius.all(Radius.circular(5)),
-                borderSide: BorderSide(
-                    color: Colors.white, style: BorderStyle.solid, width: 2)),
-            labelColor: Colors.white,
-            unselectedLabelColor: Colors.black,
-            indicatorColor: Colors.white),
-      ),
+      theme: HomateThemeHelper.lightTheme,
+      darkTheme: HomateThemeHelper.darkTheme,
+      themeMode: _themeMode,
       initialRoute: '/',
       routes: {
         '/': (context) => pages[0],

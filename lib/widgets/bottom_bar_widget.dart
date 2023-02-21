@@ -22,7 +22,7 @@ class BottomBarWidget extends StatelessWidget {
         duration: const Duration(milliseconds: 600),
         selectedColorOpacity: 0.1,
         selectedItemColor: HomateColorHelper.homateOrange,
-        unselectedItemColor: Colors.black,
+        // unselectedItemColor: Colors.black,
         currentIndex: currentIndex,
         onTap: (i) {
           if (i != currentIndex) {

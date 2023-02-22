@@ -15,7 +15,8 @@ class HomateLoginPage extends StatefulWidget {
 }
 
 class _HomateLoginPageState extends State<HomateLoginPage> {
-  var orientation, size;
+  late Orientation orientation;
+  late Size size;
   late double height, width;
   @override
   Widget build(BuildContext context) {
@@ -45,7 +46,6 @@ class _HomateLoginPageState extends State<HomateLoginPage> {
         floatingActionButton: const HomateShopFloatingActionButton(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: const BottomBarWidget(currentIndex: 0),
-        backgroundColor: const Color.fromARGB(255, 239, 239, 239),
         body: TabBarView(children: [
           LoginFormWidget(width: width, height: height),
           SignupFormWidget(width: width, height: height)

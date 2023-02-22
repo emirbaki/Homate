@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:homate/interfaces/i_logging.dart';
 
 class GoogleLogger implements ILogging {
@@ -8,6 +10,6 @@ class GoogleLogger implements ILogging {
   }
 
   void pirtlat(String cumle) {
-    print(cumle);
+    log(cumle);
   }
 }

@@ -1,7 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:homate/core/general_controller_app.dart';
 import 'package:homate/data/favorites.dart';
-import 'package:homate/models/product_model.dart';
 import 'package:homate/widgets/bottom_bar_widget.dart';
 import 'package:homate/widgets/food_card.dart';
 import 'package:homate/widgets/homate_drawer.dart';
@@ -48,13 +49,12 @@ class _HomateFavoritesPageState extends State<HomateFavoritesPage> {
         shrinkWrap: true,
         itemCount: listLengthNotifier,
         itemBuilder: (context, index) {
-          for (Product food in favoriteListInstance.favorites) {
+          for (var i = 0; i < favoriteListInstance.favorites.length;) {
             return FoodCard(
               food: favoriteListInstance.favorites[index],
               index: index,
-              isFavorite: true,
               pageRefreshOnFavorites: () => updateListLength(),
-              press: () => print(listLengthNotifier),
+              press: () => log(listLengthNotifier.toString()),
             );
           }
           return null;

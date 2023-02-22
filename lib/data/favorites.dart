@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:homate/models/product_model.dart';
 
 class FavoritesHandler {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:homate/data/shops.dart';
-import 'package:homate/models/product_model.dart';
 import 'package:homate/widgets/bottom_bar_widget.dart';
 import 'package:homate/widgets/homate_drawer.dart';
 import 'package:homate/widgets/homate_shop_fabutton.dart';
@@ -57,7 +56,7 @@ class _HomateShopPageState extends State<HomateShopPage> {
         children: [
           Opacity(
             opacity: (1 - draggableScrollableSheetSize),
-            child: Container(
+            child: SizedBox(
               width: MediaQuery.of(context).size.width *
                   (1 - draggableScrollableSheetSize),
               height: 300 * (1 - draggableScrollableSheetSize),
@@ -104,31 +103,29 @@ class _HomateShopPageState extends State<HomateShopPage> {
               maxChildSize: 1,
               initialChildSize: 0.1,
               minChildSize: 0.1,
-              builder: (context, scrollController) => Container(
-                child: ListView.builder(
-                  controller: scrollController,
-                  scrollDirection: Axis.vertical,
-                  shrinkWrap: true,
-                  itemCount: foodList.length,
-                  itemBuilder: (context, index) {
-                    for (Product food in foodList) {
-                      return FoodCard(
-                        food: foodList[index],
-                        index: index,
-                        pageRefreshOnFavorites: () {},
-                        press: () {
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    HomateShopPage(shop: shops[0]),
-                              ));
-                        },
-                      );
-                    }
-                    return null;
-                  },
-                ),
+              builder: (context, scrollController) => ListView.builder(
+                controller: scrollController,
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: foodList.length,
+                itemBuilder: (context, index) {
+                  for (var i = 0; i < foodList.length;) {
+                    return FoodCard(
+                      food: foodList[index],
+                      index: index,
+                      pageRefreshOnFavorites: () {},
+                      press: () {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  HomateShopPage(shop: shops[0]),
+                            ));
+                      },
+                    );
+                  }
+                  return null;
+                },
               ),
             ),
           )

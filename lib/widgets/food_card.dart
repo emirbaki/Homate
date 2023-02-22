@@ -8,16 +8,14 @@ import '../models/product_model.dart';
 import '../utilities/color_utilities.dart';
 
 class FoodCard extends StatefulWidget {
-  FoodCard({
+  const FoodCard({
     super.key,
     required this.food,
     required this.press,
     required this.index,
-    this.isFavorite = false,
     required this.pageRefreshOnFavorites,
   });
 
-  bool isFavorite;
   final int index;
   final Product food;
   final VoidCallback press;
@@ -28,12 +26,20 @@ class FoodCard extends StatefulWidget {
 }
 
 class _FoodCardState extends State<FoodCard> {
+  bool isFavorite = false;
+
   var favoriteListInstance = getIt<FavoritesHandler>();
   final boxShadow2 = const BoxShadow(
       offset: Offset(0, 15), blurRadius: 27, color: Colors.black26);
 
   @override
   Widget build(BuildContext context) {
+    if (!favoriteListInstance.favorites.contains(widget.food)) {
+      isFavorite = false;
+      // favoriteList.add(widget.food);
+    } else {
+      isFavorite = true;
+    }
     return Container(
       height: 160,
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -114,10 +120,8 @@ class _FoodCardState extends State<FoodCard> {
               child: InkWell(
                   onTap: setFavorite,
                   child: Icon(
-                      widget.isFavorite
-                          ? Icons.star
-                          : Icons.star_border_outlined,
-                      color: widget.isFavorite
+                      isFavorite ? Icons.star : Icons.star_border_outlined,
+                      color: isFavorite
                           ? Colors.amber.shade200
                           : Colors.grey.shade200)),
             )
@@ -129,8 +133,8 @@ class _FoodCardState extends State<FoodCard> {
 
   void setFavorite() {
     setState(() {
-      widget.isFavorite = !widget.isFavorite;
-      if (widget.isFavorite) {
+      isFavorite = !isFavorite;
+      if (isFavorite) {
         if (!favoriteListInstance.favorites.contains(widget.food)) {
           favoriteListInstance.addFavorites(widget.food);
           // favoriteList.add(widget.food);
@@ -140,8 +144,7 @@ class _FoodCardState extends State<FoodCard> {
           favoriteListInstance.removeFromFavorites(widget.food);
           // favoriteList.remove(widget.food);
           log(widget.index.toString());
-          log(favoriteListInstance.favorites.length.toString() +
-              ' liste uzunlugu');
+          log('${favoriteListInstance.favorites.length} liste uzunlugu');
         }
       }
     });

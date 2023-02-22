@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -67,7 +69,7 @@ class _CardBuildState extends State<CardBuild> {
         ),
         child: InkWell(
           onTap: () {
-            print('pressed $cardNumber');
+            log('pressed $cardNumber');
           },
           child: Stack(
             children: [

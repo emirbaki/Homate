@@ -681,6 +681,7 @@ class _WalletPageState extends State<WalletPage> {
                                                           } else {
                                                             return null;
                                                           }
+                                                          return null;
                                                         },
                                                         keyboardType:
                                                             TextInputType

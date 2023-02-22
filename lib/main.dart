@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:homate/core/general_controller_app.dart';
-import 'package:homate/utilities/color_utilities.dart';
 
 import 'package:homate/pages/pages_list.dart';
 import 'package:homate/utilities/theme_utilities.dart';
@@ -15,13 +13,13 @@ class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<MyApp> createState() => MyAppState();
 
-  static _MyAppState of(BuildContext context) =>
-      context.findAncestorStateOfType<_MyAppState>()!;
+  static MyAppState of(BuildContext context) =>
+      context.findAncestorStateOfType<MyAppState>()!;
 }
 
-class _MyAppState extends State<MyApp> {
+class MyAppState extends State<MyApp> {
   ThemeMode _themeMode = ThemeMode.light;
 
   void changeTheme(ThemeMode mode) {

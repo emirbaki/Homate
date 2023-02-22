@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:homate/data/users.dart';
-import 'package:homate/utilities/theme_utilities.dart';
 import 'package:homate/widgets/theme_switch.dart';
 
 import '../main.dart';

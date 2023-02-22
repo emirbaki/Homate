@@ -9,6 +9,7 @@ class HomateThemeHelper {
       background: const Color.fromARGB(255, 46, 46, 46),
       primary: HomateColorHelper.homateOrange,
     ),
+    primaryColor: HomateColorHelper.homateOrange,
     fontFamily: GoogleFonts.roboto().fontFamily,
     textTheme: HomateThemeHelper.darkTextTheme,
     floatingActionButtonTheme: FloatingActionButtonThemeData(
@@ -36,7 +37,8 @@ class HomateThemeHelper {
     fontFamily: GoogleFonts.roboto().fontFamily,
     textTheme: HomateThemeHelper.lightTextTheme,
     floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: HomateColorHelper.homateOrange),
+        backgroundColor: HomateColorHelper.homateOrange,
+        foregroundColor: Colors.white),
     tabBarTheme: const TabBarTheme(
         indicator: UnderlineTabIndicator(
             insets: EdgeInsets.symmetric(horizontal: 50),
@@ -44,9 +46,9 @@ class HomateThemeHelper {
             borderSide: BorderSide(
                 color: Colors.white, style: BorderStyle.solid, width: 2)),
         labelColor: Colors.white,
-        unselectedLabelColor: Colors.black,
+        unselectedLabelColor: Color.fromARGB(255, 46, 46, 46),
         indicatorColor: Colors.white),
-    iconTheme: const IconThemeData(color: Colors.black),
+    iconTheme: const IconThemeData(color: Color.fromARGB(255, 46, 46, 46)),
   );
 
   static TextTheme lightTextTheme = TextTheme(

@@ -21,11 +21,15 @@ class MyApp extends StatefulWidget {
 
 class MyAppState extends State<MyApp> {
   ThemeMode _themeMode = ThemeMode.light;
-
+  List<bool> _modes = [false, true];
   void changeTheme(ThemeMode mode) {
     setState(() {
       _themeMode = mode;
     });
+  }
+
+  List<bool> getModes() {
+    return _modes;
   }
 
   ThemeMode getTheme() {

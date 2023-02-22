@@ -15,9 +15,9 @@ const List<Widget> icons = <Widget>[
 ];
 
 class _ThemeSwitchState extends State<ThemeSwitch> {
-  List<bool> modes = [false, true];
   @override
   Widget build(BuildContext context) {
+    var modes = MyApp.of(context).getModes();
     return ToggleButtons(
       direction: Axis.horizontal,
       onPressed: (int index) {

@@ -12,6 +12,7 @@ class CategoryList extends StatefulWidget {
 class CategoryListState extends State<CategoryList> {
   int selectedIndex = 0;
   List categories = ['Sulu Yemek', 'Hamur işi', 'İçecek', 'Ev Yemeği'];
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,10 +41,11 @@ class CategoryListState extends State<CategoryList> {
                       borderRadius: BorderRadius.circular(6)),
                   child: Text(
                     categories[index],
-                    style: TextStyle(
-                        color: index == selectedIndex
-                            ? HomateColorHelper.homateOrange.withOpacity(0.8)
-                            : Colors.black),
+                    style: index == selectedIndex
+                        ? Theme.of(context).textTheme.labelMedium!.copyWith(
+                            color:
+                                HomateColorHelper.homateOrange.withOpacity(0.8))
+                        : Theme.of(context).textTheme.labelMedium,
                   ),
                 ),
               )),

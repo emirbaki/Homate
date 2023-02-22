@@ -1,7 +1,6 @@
 import 'package:homate/data/activities.dart';
 import 'package:homate/data/cards.dart';
 import 'package:homate/data/user.dart';
-import 'package:homate/main.dart';
 
 import 'package:homate/models/activity_model.dart';
 import 'package:homate/models/card_model.dart';

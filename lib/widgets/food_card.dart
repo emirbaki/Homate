@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:homate/main.dart';
 
 import '../core/general_controller_app.dart';
 import '../data/favorites.dart';
@@ -60,7 +61,10 @@ class _FoodCardState extends State<FoodCard> {
             Container(
               margin: const EdgeInsets.only(top: 20, right: 10),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(22), color: Colors.white),
+                  borderRadius: BorderRadius.circular(22),
+                  color: MyApp.of(context).getTheme() == ThemeMode.dark
+                      ? const Color.fromARGB(255, 107, 107, 107)
+                      : Colors.white),
             ),
             Positioned(
                 top: 0,
@@ -122,7 +126,7 @@ class _FoodCardState extends State<FoodCard> {
                   child: Icon(
                       isFavorite ? Icons.star : Icons.star_border_outlined,
                       color: isFavorite
-                          ? Colors.amber.shade200
+                          ? Colors.amber.shade600
                           : Colors.grey.shade200)),
             )
           ],

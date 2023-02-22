@@ -6,6 +6,7 @@ import 'cook_model.dart';
 class Shop {
   final int shopID;
   final String name;
+  final String shopDesc;
   final List<Cook> cooks;
   final List<Product> foods;
   final List<Comment> comments;
@@ -13,6 +14,7 @@ class Shop {
   Shop(
     this.shopID,
     this.name,
+    this.shopDesc,
     this.cooks,
     this.foods,
     this.comments,

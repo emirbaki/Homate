@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 Widget buildActivity(
+  BuildContext context,
   String companyName,
   double ammountChange,
   bool income,
@@ -33,11 +34,9 @@ Widget buildActivity(
                       companyName,
                       overflow: TextOverflow.clip, //TextOverflow.ellipsis,
                       textAlign: TextAlign.left,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: size.height * 0.02,
-                      ),
+                      style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                          fontSize: size.height * 0.02,
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -51,17 +50,16 @@ Widget buildActivity(
                             ),
                           )
                           .toString(),
-                      style: TextStyle(
-                        color: Colors.white.withOpacity(0.8),
-                        fontSize: size.height * 0.014,
-                      ),
+                      style: Theme.of(context)
+                          .textTheme
+                          .labelSmall
+                          ?.copyWith(fontSize: size.height * 0.014),
                     ),
                     Padding(
                       padding:
                           EdgeInsets.symmetric(horizontal: size.width * 0.01),
                       child: Icon(
                         Icons.circle,
-                        color: Colors.white.withOpacity(0.8),
                         size: size.height * 0.005,
                       ),
                     ),
@@ -73,10 +71,10 @@ Widget buildActivity(
                             ),
                           )
                           .toString(),
-                      style: TextStyle(
-                        color: Colors.white.withOpacity(0.8),
-                        fontSize: size.height * 0.014,
-                      ),
+                      style: Theme.of(context)
+                          .textTheme
+                          .labelSmall
+                          ?.copyWith(fontSize: size.height * 0.014),
                     ),
                   ],
                 ),
@@ -112,18 +110,16 @@ Widget buildActivity(
               ),
               child: Text(
                 '\$4,855.23', //TODO add balance after activity to model
-                style: TextStyle(
-                  color: Colors.white.withOpacity(0.8),
-                  fontSize: size.height * 0.014,
-                ),
+                style: Theme.of(context)
+                    .textTheme
+                    .labelSmall
+                    ?.copyWith(fontSize: size.height * 0.014),
               ),
             ),
           ),
           const Align(
             alignment: Alignment.bottomCenter,
-            child: Divider(
-              color: Colors.white,
-            ),
+            child: Divider(),
           ),
         ],
       ),

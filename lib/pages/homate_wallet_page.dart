@@ -1,6 +1,7 @@
 import 'package:homate/data/activities.dart';
 import 'package:homate/data/cards.dart';
 import 'package:homate/data/user.dart';
+import 'package:homate/main.dart';
 
 import 'package:homate/models/activity_model.dart';
 import 'package:homate/models/card_model.dart';
@@ -170,7 +171,6 @@ class _WalletPageState extends State<WalletPage> {
               currentIndex: currentIndex,
             )
           : null,
-      backgroundColor: Colors.black,
       body: SafeArea(
         child: Stack(
           children: [
@@ -191,12 +191,7 @@ class _WalletPageState extends State<WalletPage> {
                         width: size.width * 0.75,
                         child: Text(
                           'Hi, $userFirstName',
-                          style: TextStyle(
-                            overflow: TextOverflow.clip,
-                            color: Colors.white,
-                            fontSize: size.height * 0.04,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: Theme.of(context).textTheme.headlineMedium,
                         ),
                       ),
                       const CircleAvatar(
@@ -213,9 +208,7 @@ class _WalletPageState extends State<WalletPage> {
                     left: size.width * 0.05,
                     right: size.width * 0.05,
                   ),
-                  child: const Divider(
-                    color: Colors.white,
-                  ),
+                  child: const Divider(),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(
@@ -267,58 +260,52 @@ class _WalletPageState extends State<WalletPage> {
                     children: [
                       Text(
                         'CARD HISTORY',
-                        style: TextStyle(
-                          color: Colors.white.withOpacity(0.8),
-                          fontSize: size.height * 0.02,
-                        ),
+                        style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                              fontSize: size.height * 0.02,
+                            ),
                       ),
                       Container(
                         padding: EdgeInsets.only(
                             left: size.width * 0.03, right: size.width * 0.03),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30.0),
-                          color: Colors.white10,
+                          color: Theme.of(context)
+                              .colorScheme
+                              .background
+                              .withOpacity(0.5), //TODO: buraya bak
                           border: Border.all(),
                         ),
                         child: DropdownButtonHideUnderline(
                           // build filter options
                           child: DropdownButton(
-                            dropdownColor: Colors.black,
                             value: _sortValue,
-                            items: const [
+                            items: [
                               DropdownMenuItem(
                                 value: 0,
                                 child: Text(
                                   "Today",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
+                                  style: Theme.of(context).textTheme.labelSmall,
                                 ),
                               ),
                               DropdownMenuItem(
                                 value: 1,
                                 child: Text(
                                   "Yesterday",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
+                                  style: Theme.of(context).textTheme.labelSmall,
                                 ),
                               ),
                               DropdownMenuItem(
                                   value: 2,
                                   child: Text(
                                     "Last 7 days",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                    ),
+                                    style:
+                                        Theme.of(context).textTheme.labelSmall,
                                   )),
                               DropdownMenuItem(
                                 value: 3,
                                 child: Text(
                                   "Last 30 days",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
+                                  style: Theme.of(context).textTheme.labelSmall,
                                 ),
                               ),
                             ],
@@ -362,6 +349,7 @@ class _WalletPageState extends State<WalletPage> {
                         // build activities
                         return _lvActivities.isNotEmpty
                             ? buildActivity(
+                                context,
                                 _lvActivities[index].companyName,
                                 _lvActivities[index].ammountChange,
                                 _lvActivities[index].income,
@@ -379,14 +367,11 @@ class _WalletPageState extends State<WalletPage> {
                                     Text(
                                       "Woops! \n We couldn't find anything with this filter",
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: size.height * 0.02,
-                                      ),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .labelMedium,
                                     ),
-                                    const Divider(
-                                      color: Colors.white,
-                                    ),
+                                    const Divider(),
                                   ]),
                                 ),
                               );
